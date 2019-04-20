@@ -8,14 +8,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.MainActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints">
-
-
-        </androidx.appcompat.widget.Toolbar>
-
         <ProgressBar
             android:id="@+id/prograss"
             app:layout_constraintStart_toStartOf="parent"

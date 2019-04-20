@@ -1,4 +1,4 @@
-package com.example.tvshow.data;
+package com.example.tvshow.data.remote;
 
 public class Constants {
     public static final String POSTER_BASE_URL = "http://image.tmdb.org/t/p/w342/";

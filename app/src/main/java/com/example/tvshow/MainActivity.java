@@ -8,11 +8,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ProgressBar;
 
 import com.example.tvshow.data.adapter.TvAdapter;
-import com.example.tvshow.data.model.TvAiringToday;
+import com.example.tvshow.data.model.TvResponse;
 import com.example.tvshow.data.remote.TvService;
 import com.example.tvshow.databinding.ActivityMainBinding;
 
@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding activityMainBinding;
     private TvAdapter adapter;
-    ProgressBar progressBar;
 
 
     @Override
@@ -30,26 +29,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        progressBar = findViewById(R.id.prograss);
+        activityMainBinding.prograss.setVisibility(View.VISIBLE);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         activityMainBinding.rvTv.setLayoutManager(gridLayoutManager);
 
-        TvService.getAPI().tvAiringTodayCall("119377682a1e98f078b0484aa494acb1").enqueue(new Callback<TvAiringToday>() {
+        TvService.getAPI().tvAiringTodayCall("119377682a1e98f078b0484aa494acb1").enqueue(new Callback<TvResponse>() {
             @Override
-            public void onResponse(Call<TvAiringToday> call, Response<TvAiringToday> response) {
-                progressBar.setVisibility(View.GONE);
+            public void onResponse(Call<TvResponse> call, Response<TvResponse> response) {
+                Log.d("response", response.body().toString());
+
                 if (response.isSuccessful()){
-                    List<TvAiringToday.ResultsTvshow> resultsTvshows = response.body().getResults();
+                    activityMainBinding.prograss.setVisibility(View.INVISIBLE);
+                    List<TvResponse.ResultsTvShow> resultsTvshows = response.body().getResults();
                     adapter = new TvAdapter(resultsTvshows, MainActivity.this);
                     activityMainBinding.rvTv.setAdapter(adapter);
+
+
+//                        for (TvResponse.ResultsTvShow resultsTvshow: resultsTvshows ){
+//                            resultsTvshow.getName();
+//                            Log.d("Judul tv",  resultsTvshow.getName());
+//                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<TvAiringToday> call, Throwable t) {
-                progressBar.setVisibility(View.GONE);
-
+            public void onFailure(Call<TvResponse> call, Throwable t) {
+//                Log.d("failure", t.getLocalizedMessage());
             }
         });
     }
