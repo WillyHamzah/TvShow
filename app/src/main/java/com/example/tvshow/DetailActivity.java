@@ -74,6 +74,7 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
 
+
             @Override
             public void onFailure(Call<TrailerResponse> call, Throwable t) {
                 Toast.makeText(DetailActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
