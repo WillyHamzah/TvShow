@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         activityMainBinding.prograss.setVisibility(View.VISIBLE);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
         activityMainBinding.rvTv.setLayoutManager(gridLayoutManager);
 
         TvService.getAPI().tvAiringTodayCall("119377682a1e98f078b0484aa494acb1").enqueue(new Callback<TvResponse>() {

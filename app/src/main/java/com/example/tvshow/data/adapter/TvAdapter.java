@@ -56,13 +56,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
                     public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                         super.onResourceReady(resource, transition);
 
-                        Palette.from(resource).generate(new Palette.PaletteAsyncListener() {
-                            @Override
-                            public void onGenerated(@Nullable Palette palette) {
-                                holder.viewDataBinding.titleBackground.setBackgroundColor(
-                                        palette.getDarkVibrantColor(context.getResources().getColor(android.R.color.darker_gray)));
-                            }
-                        });
+
                     }
                 });
 

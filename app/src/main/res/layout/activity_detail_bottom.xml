@@ -7,7 +7,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:showIn="@layout/activity_detail">
+        tools:showIn="@layout/activity_detail"
+        android:background="@color/colorPrimaryDark">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/synopsis_label"
@@ -17,6 +18,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/synopsis_label"
+            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +30,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
+            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/synopsis_label"
@@ -41,10 +44,11 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
+            android:text="Trailers"
+            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/synopsis"
-           android:text="Trailers" />
+            app:layout_constraintTop_toBottomOf="@id/synopsis" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTrailers"
@@ -68,10 +72,11 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
+            android:text="Review"
+            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvTrailers"
-            android:text="Review" />
+            app:layout_constraintTop_toBottomOf="@id/rvTrailers" />
 
         <TextView
             android:id="@+id/reviewText"
@@ -80,6 +85,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
+            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/reviewTv"
