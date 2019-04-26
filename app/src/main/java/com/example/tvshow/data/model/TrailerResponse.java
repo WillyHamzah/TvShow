@@ -7,14 +7,14 @@ import java.util.List;
 public class TrailerResponse {
 
     /**
-     * id : 85937
-     * results : [{"id":"5c40f2339251416e2db140b4","iso_639_1":"en","iso_3166_1":"US","key":"BpiILiEZuF4","name":"TVアニメ「鬼滅の刃」第1弾PV 2019年4月放送開始","site":"YouTube","size":1080,"type":"Teaser"},{"id":"5caa5c1ec3a3683f4f623cc8","iso_639_1":"en","iso_3166_1":"US","key":"Sl2k7bfBeCw","name":"Demon Slayer: Kimetsu no Yaiba | OFFICIAL PREVIEW","site":"YouTube","size":1080,"type":"Trailer"}]
+     * id : 1399
+     * results : [{"id":"5b5b91c2925141523700502c","iso_639_1":"en","iso_3166_1":"US","key":"bjqEWgDVPe0","name":"GAME OF THRONES - SEASON 1- TRAILER","site":"YouTube","size":1080,"type":"Trailer"},{"id":"5c9295200e0a267cd8168bd8","iso_639_1":"en","iso_3166_1":"US","key":"BpJYNVhGf1s","name":"Game Of Thrones \"The Game Begins\" Preview (HBO)","site":"YouTube","size":1080,"type":"Trailer"},{"id":"5c92c2519251412b51773135","iso_639_1":"en","iso_3166_1":"US","key":"f3MUpuRF6Ck","name":"Inside Game of Thrones: A Story in Prosthetics \u2013 BTS (HBO)","site":"YouTube","size":1080,"type":"Behind the Scenes"},{"id":"5c999b48c3a36863b73b9d42","iso_639_1":"en","iso_3166_1":"US","key":"y2ZJ3lTaREY","name":"Inside Game of Thrones: A Story in Camera Work \u2013 BTS (HBO)","site":"YouTube","size":1080,"type":"Behind the Scenes"}]
      */
 
     @SerializedName("id")
     private int id;
     @SerializedName("results")
-    private List<ResultsTvTrailer> results;
+    private List<ResultsTvOnTheAir> results;
 
     public int getId() {
         return id;
@@ -24,24 +24,24 @@ public class TrailerResponse {
         this.id = id;
     }
 
-    public List<ResultsTvTrailer> getResults() {
+    public List<ResultsTvOnTheAir> getResults() {
         return results;
     }
 
-    public void setResults(List<ResultsTvTrailer> results) {
+    public void setResults(List<ResultsTvOnTheAir> results) {
         this.results = results;
     }
 
-    public static class ResultsTvTrailer {
+    public static class ResultsTvOnTheAir {
         /**
-         * id : 5c40f2339251416e2db140b4
+         * id : 5b5b91c2925141523700502c
          * iso_639_1 : en
          * iso_3166_1 : US
-         * key : BpiILiEZuF4
-         * name : TVアニメ「鬼滅の刃」第1弾PV 2019年4月放送開始
+         * key : bjqEWgDVPe0
+         * name : GAME OF THRONES - SEASON 1- TRAILER
          * site : YouTube
          * size : 1080
-         * type : Teaser
+         * type : Trailer
          */
 
         @SerializedName("id")

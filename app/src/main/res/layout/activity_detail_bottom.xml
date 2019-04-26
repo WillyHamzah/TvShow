@@ -7,53 +7,28 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:showIn="@layout/activity_detail"
-        android:background="@color/colorPrimaryDark">
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/synopsis_label"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/synopsis_label"
-            android:textColor="@color/white"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/synopsis"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="16dp"
-            android:textColor="@color/white"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/synopsis_label"
-            tools:text="Lorem ipsum dolor sit amet" />
+        android:background="@color/colorPrimaryDark"
+        tools:showIn="@layout/activity_detail">
 
         <TextView
             android:id="@+id/trailers_label"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="31dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="16dp"
             android:text="Trailers"
             android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/synopsis" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="46dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTrailers"
             android:layout_width="0dp"
-            android:layout_height="185dp"
+            android:layout_height="78dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
@@ -63,33 +38,44 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-
-        <TextView
-            android:id="@+id/reviewTv"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/synopsis_label"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="16dp"
-            android:text="Review"
+            android:layout_marginStart="16dp"
+            android:text="@string/synopsis_label"
+
             android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvTrailers" />
 
         <TextView
-            android:id="@+id/reviewText"
+            android:id="@+id/synopsis"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
-            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/reviewTv"
-            tools:text="Lorem ipsum dolor sit amet" />
+            app:layout_constraintTop_toBottomOf="@id/synopsis_label"
+            tools:text="sinopsis" />
+
+        <include
+            android:id="@+id/section_riview"
+            layout="@layout/review_tv_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/synopsis"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

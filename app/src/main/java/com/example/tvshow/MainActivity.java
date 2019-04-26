@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
         activityMainBinding.rvTv.setLayoutManager(gridLayoutManager);
 
-        TvService.getAPI().tvAiringTodayCall("119377682a1e98f078b0484aa494acb1").enqueue(new Callback<TvResponse>() {
+        TvService.getAPI().tvOnTheAir("119377682a1e98f078b0484aa494acb1").enqueue(new Callback<TvResponse>() {
             @Override
             public void onResponse(Call<TvResponse> call, Response<TvResponse> response) {
                 Log.d("response", response.body().toString());
 
                 if (response.isSuccessful()){
                     activityMainBinding.prograss.setVisibility(View.INVISIBLE);
-                    List<TvResponse.ResultsTvShow> resultsTvshows = response.body().getResults();
+                    List<TvResponse.ResultsTvOnTheAir> resultsTvshows = response.body().getResults();
                     adapter = new TvAdapter(resultsTvshows, MainActivity.this);
                     activityMainBinding.rvTv.setAdapter(adapter);
 

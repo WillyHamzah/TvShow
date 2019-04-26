@@ -19,10 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.ViewHolder> {
 
-    private List<TrailerResponse.ResultsTvTrailer> resultsTvTrailerList;
+    private List<TrailerResponse.ResultsTvOnTheAir> resultsTvTrailerList;
     private Context context;
 
-    public TrailerAdapter(List<TrailerResponse.ResultsTvTrailer> trailers) {
+    public TrailerAdapter(List<TrailerResponse.ResultsTvOnTheAir> trailers) {
         this.resultsTvTrailerList = trailers;
     }
 
@@ -35,7 +35,7 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(TrailerAdapter.ViewHolder holder, int position) {
-        final TrailerResponse.ResultsTvTrailer trailer = resultsTvTrailerList.get(position);
+        final TrailerResponse.ResultsTvOnTheAir trailer = resultsTvTrailerList.get(position);
 
         Glide.with(context)
                 .load("https://i1.ytimg.com/vi/" + trailer.getKey() + "/0.jpg")

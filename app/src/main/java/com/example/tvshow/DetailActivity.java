@@ -29,7 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TvResponse.ResultsTvShow resultsTvShow = getIntent().getParcelableExtra("tv_intent");
+        TvResponse.ResultsTvOnTheAir resultsTvShow = getIntent().getParcelableExtra("tv_intent");
         activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         displayDetail(resultsTvShow);
@@ -39,7 +39,7 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
-    void displayDetail(TvResponse.ResultsTvShow resultsTvShow) {
+    void displayDetail(TvResponse.ResultsTvOnTheAir resultsTvShow) {
         activityDetailBinding.detailTop.sectionTitle.tvTitle.setText(resultsTvShow.getName());
 //        activityDetailBinding.detailTop.sectionTitle.tvOriginCountry.setText(resultsTvShow.getOriginCountry());
 
@@ -63,11 +63,11 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     void displayTrailers(int i) {
-        TvService.getAPI().trailerAiringTodayCall(i, "119377682a1e98f078b0484aa494acb1").enqueue(new Callback<TrailerResponse>() {
+        TvService.getAPI().trailerOnTheAir(i, "119377682a1e98f078b0484aa494acb1").enqueue(new Callback<TrailerResponse>() {
             @Override
             public void onResponse(Call<TrailerResponse> call, Response<TrailerResponse> response) {
                 if (response.isSuccessful()) {
-                    List<TrailerResponse.ResultsTvTrailer> trailers = response.body().getResults();
+                    List<TrailerResponse.ResultsTvOnTheAir> trailers = response.body().getResults();
                     TrailerAdapter adapter = new TrailerAdapter(trailers);
                     activityDetailBinding.detailBottom.rvTrailers.setAdapter(adapter);
 

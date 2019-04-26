@@ -11,13 +11,13 @@ import retrofit2.http.Query;
 
 public interface ApiEndPoint {
 
-    @GET("tv/airing_today")
-    Call<TvResponse> tvAiringTodayCall(
+    @GET("tv/on_the_air")
+    Call<TvResponse> tvOnTheAir(
             @Query("api_key") String apiKey
     );
 
     @GET("tv/{tv_id}/videos")
-    Call<TrailerResponse> trailerAiringTodayCall(
+    Call<TrailerResponse> trailerOnTheAir(
             @Path("tv_id") int tvId,
             @Query("api_key") String apiKey
     );

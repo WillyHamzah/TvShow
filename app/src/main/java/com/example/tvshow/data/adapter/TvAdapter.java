@@ -26,10 +26,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
 
-    private List<TvResponse.ResultsTvShow> tvAiringTodays;
+    private List<TvResponse.ResultsTvOnTheAir> tvAiringTodays;
     private Context context;
 
-    public TvAdapter(List<TvResponse.ResultsTvShow> tvAiringTodays, Context context) {
+    public TvAdapter(List<TvResponse.ResultsTvOnTheAir> tvAiringTodays, Context context) {
         this.tvAiringTodays = tvAiringTodays;
         this.context = context;
     }
@@ -44,7 +44,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final TvResponse.ResultsTvShow resultsTvshow = tvAiringTodays.get(position);
+        final TvResponse.ResultsTvOnTheAir resultsTvshow = tvAiringTodays.get(position);
 
         holder.viewDataBinding.tvTitle.setText(resultsTvshow.getName());
 
