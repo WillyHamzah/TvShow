@@ -1,8 +1,5 @@
 package com.example.tvshow.data.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -67,7 +64,7 @@ public class ReviewResponse {
         this.results = results;
     }
 
-    public static class ResultsTvOnTheAir implements Parcelable {
+    public static class ResultsTvOnTheAir {
         /**
          * author : lmao7
          * content : I started watching when it came out as I heard that fans of LOTR also liked this. I stopped watching after Season 1 as I was devastated lol kinda. Only 2015 I decided to continue watching and got addicted like it seemed complicated at first, too many stories and characters. I even used a guide from internet like family tree per house while watching or GOT wiki so I can have more background on the characters. For a TV series, this show can really take you to a different world and never knowing what will happen. It is very daring that any time anybody can just die (I learned not to be attached and have accepted that they will all die so I won't be devastated hehe). I have never read the books but the show is entertaining and you will really root for your faves and really hate on those you hate.
@@ -82,28 +79,9 @@ public class ReviewResponse {
         @SerializedName("content")
         private String content;
         @SerializedName("id")
-        private int id;
+        private String id;
         @SerializedName("url")
         private String url;
-
-        protected ResultsTvOnTheAir(Parcel in) {
-            author = in.readString();
-            content = in.readString();
-            id = in.readInt();
-            url = in.readString();
-        }
-
-        public static final Creator<ResultsTvOnTheAir> CREATOR = new Creator<ResultsTvOnTheAir>() {
-            @Override
-            public ResultsTvOnTheAir createFromParcel(Parcel in) {
-                return new ResultsTvOnTheAir(in);
-            }
-
-            @Override
-            public ResultsTvOnTheAir[] newArray(int size) {
-                return new ResultsTvOnTheAir[size];
-            }
-        };
 
         public String getAuthor() {
             return author;
@@ -121,11 +99,11 @@ public class ReviewResponse {
             this.content = content;
         }
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -135,19 +113,6 @@ public class ReviewResponse {
 
         public void setUrl(String url) {
             this.url = url;
-        }
-
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(author);
-            dest.writeString(content);
-            dest.writeInt(id);
-            dest.writeString(url);
         }
     }
 }

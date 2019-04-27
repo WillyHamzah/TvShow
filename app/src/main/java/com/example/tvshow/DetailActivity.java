@@ -34,14 +34,13 @@ public class DetailActivity extends AppCompatActivity {
         TvResponse.ResultsTvOnTheAir resultsTvShow = getIntent().getParcelableExtra("tv_intent");
         activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
-        ReviewResponse.ResultsTvOnTheAir resultsTvOnTheAir = getIntent().getParcelableExtra("review_intent");
-        activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
+
 
         initRecyclerViewReview();
         initRecyclerView();
         displayDetail(resultsTvShow);
         displayTrailers(resultsTvShow.getId());
-        displayReview(resultsTvOnTheAir.getId());
+        displayReview(resultsTvShow.getId());
 
     }
 
