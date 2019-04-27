@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.example.tvshow.R;
 import com.example.tvshow.data.model.ReviewResponse;
-import com.example.tvshow.databinding.ReviewTvItemBinding;
+import com.example.tvshow.databinding.ReviewItemBinding;
 
 import java.util.List;
 
@@ -20,20 +20,19 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     private List<ReviewResponse.ResultsTvOnTheAir> resultsTvOnTheAirs;
     private Context context;
 
-    public ReviewAdapter(List<ReviewResponse.ResultsTvOnTheAir> review){
-        this.resultsTvOnTheAirs = review ;
+    public ReviewAdapter(List<ReviewResponse.ResultsTvOnTheAir> review) {
+        this.resultsTvOnTheAirs = review;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.review_tv_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.review_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final ReviewResponse.ResultsTvOnTheAir review = resultsTvOnTheAirs.get(position);
 
     }
 
@@ -43,7 +42,8 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ReviewTvItemBinding reviewTvItemBinding;
+        ReviewItemBinding reviewTvItemBinding;
+
         public ViewHolder(View itemView) {
             super(itemView);
             reviewTvItemBinding = DataBindingUtil.bind(itemView);

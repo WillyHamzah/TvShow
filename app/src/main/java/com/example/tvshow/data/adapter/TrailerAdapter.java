@@ -58,6 +58,7 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TrailerListItemBinding viewDataBinding;
+
         public ViewHolder(View itemView) {
             super(itemView);
             viewDataBinding = DataBindingUtil.bind(itemView);

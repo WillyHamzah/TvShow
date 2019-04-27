@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.tvshow.data.adapter.ReviewAdapter;
+import com.example.tvshow.data.model.ReviewResponse;
 import com.example.tvshow.data.remote.Constants;
 import com.example.tvshow.data.adapter.TrailerAdapter;
 import com.example.tvshow.data.model.TrailerResponse;
@@ -32,19 +34,20 @@ public class DetailActivity extends AppCompatActivity {
         TvResponse.ResultsTvOnTheAir resultsTvShow = getIntent().getParcelableExtra("tv_intent");
         activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
-        displayDetail(resultsTvShow);
-        initRecyclerView();
-        displayTrailers(resultsTvShow.getId());
+        ReviewResponse.ResultsTvOnTheAir resultsTvOnTheAir = getIntent().getParcelableExtra("review_intent");
+        activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
+        initRecyclerViewReview();
+        initRecyclerView();
+        displayDetail(resultsTvShow);
+        displayTrailers(resultsTvShow.getId());
 
     }
 
+
     void displayDetail(TvResponse.ResultsTvOnTheAir resultsTvShow) {
         activityDetailBinding.detailTop.sectionTitle.tvTitle.setText(resultsTvShow.getName());
-//        activityDetailBinding.detailTop.sectionTitle.tvOriginCountry.setText(resultsTvShow.getOriginCountry());
-
         activityDetailBinding.detailBottom.synopsis.setText(resultsTvShow.getOverview());
-//        activityDetailBinding.detailBottom.reviewText.setText(resultsTvShow.get());
 
 
         Glide.with(this)
@@ -55,7 +58,33 @@ public class DetailActivity extends AppCompatActivity {
                 .load(Constants.BACKDROP_BASE_URL + resultsTvShow.getBackdropPath())
                 .into(activityDetailBinding.detailTop.backropImage);
     }
+//    void displayReview(ReviewResponse.ResultsTvOnTheAir resultsTvOnTheAir) {
+//        activityDetailBinding.detailBottom.sectionRiview.review.setText(resultsTvOnTheAir.getAuthor());
+//    }
 
+
+    void initRecyclerViewReview() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        activityDetailBinding.detailBottom.rvReview.setLayoutManager(layoutManager);
+    }
+
+    void displayReview(int i) {
+        TvService.getAPI().reviewAiringTodayCall(i, "119377682a1e98f078b0484aa494acb1").enqueue(new Callback<ReviewResponse>() {
+            @Override
+            public void onResponse(Call<ReviewResponse> call, Response<ReviewResponse> response) {
+                if (response.isSuccessful()) {
+                    List<ReviewResponse.ResultsTvOnTheAir> resultsTvOnTheAirs = response.body().getResults();
+                    ReviewAdapter adapter = new ReviewAdapter(resultsTvOnTheAirs);
+                    activityDetailBinding.detailBottom.rvReview.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReviewResponse> call, Throwable t) {
+
+            }
+        });
+    }
 
     void initRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.HORIZONTAL, false);

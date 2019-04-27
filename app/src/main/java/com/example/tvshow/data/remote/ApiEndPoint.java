@@ -23,9 +23,8 @@ public interface ApiEndPoint {
     );
     @GET("movie/{movie_id}/reviews")
     Call<ReviewResponse>reviewAiringTodayCall (
-            @Path("movie_id") int id,
-            @Query("api_key") String apiKEy,
-            @Query("language") String language
+            @Path("movie_id") int reviewId,
+            @Query("api_key") String apiKey
     );
 
 }

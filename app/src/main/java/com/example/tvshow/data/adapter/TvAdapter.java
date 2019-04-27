@@ -64,7 +64,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("tv_intent", resultsTvshow );
+                intent.putExtra("tv_intent", resultsTvshow);
 
                 context.startActivities(new Intent[]{intent});
             }

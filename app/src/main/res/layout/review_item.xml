@@ -9,29 +9,17 @@
         android:layout_height="wrap_content"
         tools:showIn="@layout/activity_detail_bottom">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/review_label"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="0dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            tools:text="Review"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
-
         <TextView
             android:id="@+id/review"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            tools:text="Tv Country"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/review_label" />
+            tools:ignore="MissingConstraints"
+            tools:text="review" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
