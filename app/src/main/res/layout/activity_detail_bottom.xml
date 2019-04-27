@@ -15,6 +15,7 @@
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="0dp"
             android:layout_height="31dp"
+            android:textColor="@color/white"
             android:layout_marginLeft="16dp"
             android:text="Trailers"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +28,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTrailers"
             android:layout_width="0dp"
-            android:layout_height="78dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
@@ -45,6 +46,7 @@
             android:layout_marginStart="16dp"
             android:text="@string/synopsis_label"
             app:layout_constraintHorizontal_bias="1.0"
+            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +61,7 @@
             android:layout_marginRight="16dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/synopsis_label"
             tools:text="sinopsis" />
 
@@ -72,13 +75,14 @@
             android:layout_marginRight="16dp"
             android:text="Review"
             app:layout_constraintLeft_toLeftOf="parent"
+            android:textColor="@color/white"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/synopsis" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvReview"
             android:layout_width="0dp"
-            android:layout_height="78dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
