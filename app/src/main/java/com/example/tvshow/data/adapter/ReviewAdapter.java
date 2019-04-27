@@ -33,6 +33,9 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        final ReviewResponse.ResultsTvOnTheAir review = resultsTvOnTheAirs.get(position);
+
+        holder.reviewTvItemBinding.review.setText(review.getContent());
 
     }
 

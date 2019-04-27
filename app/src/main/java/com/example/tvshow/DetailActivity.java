@@ -41,9 +41,9 @@ public class DetailActivity extends AppCompatActivity {
         initRecyclerView();
         displayDetail(resultsTvShow);
         displayTrailers(resultsTvShow.getId());
+        displayReview(resultsTvOnTheAir.getId());
 
     }
-
 
     void displayDetail(TvResponse.ResultsTvOnTheAir resultsTvShow) {
         activityDetailBinding.detailTop.sectionTitle.tvTitle.setText(resultsTvShow.getName());
@@ -58,9 +58,6 @@ public class DetailActivity extends AppCompatActivity {
                 .load(Constants.BACKDROP_BASE_URL + resultsTvShow.getBackdropPath())
                 .into(activityDetailBinding.detailTop.backropImage);
     }
-//    void displayReview(ReviewResponse.ResultsTvOnTheAir resultsTvOnTheAir) {
-//        activityDetailBinding.detailBottom.sectionRiview.review.setText(resultsTvOnTheAir.getAuthor());
-//    }
 
 
     void initRecyclerViewReview() {
@@ -106,7 +103,6 @@ public class DetailActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TrailerResponse> call, Throwable t) {
-                Toast.makeText(DetailActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
 
             }
