@@ -45,6 +45,7 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
+
     void displayDetail(TvResponse.ResultsTvOnTheAir resultsTvShow) {
         activityDetailBinding.detailTop.sectionTitle.tvTitle.setText(resultsTvShow.getName());
         activityDetailBinding.detailBottom.synopsis.setText(resultsTvShow.getOverview());

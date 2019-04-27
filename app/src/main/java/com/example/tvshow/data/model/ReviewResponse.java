@@ -82,14 +82,14 @@ public class ReviewResponse {
         @SerializedName("content")
         private String content;
         @SerializedName("id")
-        private String id;
+        private int id;
         @SerializedName("url")
         private String url;
 
         protected ResultsTvOnTheAir(Parcel in) {
             author = in.readString();
             content = in.readString();
-            id = in.readString();
+            id = in.readInt();
             url = in.readString();
         }
 
@@ -121,11 +121,11 @@ public class ReviewResponse {
             this.content = content;
         }
 
-        public String getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
 
@@ -146,7 +146,7 @@ public class ReviewResponse {
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeString(author);
             dest.writeString(content);
-            dest.writeString(id);
+            dest.writeInt(id);
             dest.writeString(url);
         }
     }
